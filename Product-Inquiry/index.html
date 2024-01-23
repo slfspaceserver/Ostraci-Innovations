@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head> 
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ostraci Innovations - Product Inquiry. Explore chemical-free, natural, and eco-friendly innovative Products for a sustainable and healthy lifestyle.">
+    <meta name="keywords" content="Ostraci Innovations, Product Inquiry, Chemical-free Products, Eco-friendly solutions, Sustainable living">
+    <meta name="author" content="Ostraci Innovations">
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        label,
+        input,
+        select,
+        textarea {
+            width: 100%;
+            margin-bottom: 16px;
+        }
+
+        input,
+        select,
+        textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <title>Product Inquiry Form</title>
+</head>
+
+<body>
+    <div class="container">
+        <div style="text-align:center">
+            <h2>Product Inquiry</h2>
+            <p>Fill out the form below to inquire about our products:</p>
+        </div>
+        <form id="product-inquiry-form" action="">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Your name.." required>
+
+            <label for="productName">Product Name:</label>
+            <select id="productName" name="productName" required>
+                <option value="" disabled selected>Select Product</option>
+                <option value="Foul Smell Remover">Foul Smell Remover</option>
+                <option value="Pesticide Remover">Pesticide Remover Well Wash</option>
+                <option value="Well Wash">Well Wash</option>
+            </select>
+
+            <label for="pincode">Pincode:</label>
+            <input type="text" id="pincode" name="pincode" placeholder="Your pincode.." required>
+
+            <label for="areaName">Area Name:</label>
+            <input type="text" id="areaName" name="areaName" placeholder="Your area name.." required>
+
+            <label for="district">District:</label>
+            <input type="text" id="district" name="district" placeholder="Your district.." required>
+
+            <label for="state">State Name:</label>
+            <input type="text" id="state" name="state" placeholder="Your state.." required>
+
+            <label for="mobile">Mobile Number:</label>
+            <input type="tel" id="mobile" name="mobile" placeholder="Your mobile number.." required>
+
+           
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <script>
+        $("#product-inquiry-form").submit((e) => {
+            e.preventDefault();
+            $.ajax({
+                url: "https://script.google.com/macros/s/AKfycbx2YPRxbwoYNh-G-KtFuai5dmTgmIEcFf0kxUQwyQZZrM56EhP_Y-tsJOMafcmf8wyupw/exec",
+                data: $("#product-inquiry-form").serialize(),
+                method: "post",
+                success: function (response) {
+                    alert("Form submitted successfully");
+                    window.location.reload();
+                },
+                error: function (err) {
+                    alert("Something went wrong");
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
